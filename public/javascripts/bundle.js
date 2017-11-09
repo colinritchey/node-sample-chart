@@ -360,6 +360,21 @@ module.exports = invariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -453,7 +468,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -477,7 +492,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -546,21 +561,6 @@ module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
-} else {
-  module.exports = __webpack_require__(17);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -576,7 +576,7 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
-  var warning = __webpack_require__(5);
+  var warning = __webpack_require__(6);
   var ReactPropTypesSecret = __webpack_require__(8);
   var loggedTypeFailures = {};
 }
@@ -959,7 +959,7 @@ module.exports = getActiveElement;
 "use strict";
 
 
-var _react = __webpack_require__(6);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -992,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function () {
  This source code is licensed under the MIT license found in the
  LICENSE file in the root directory of this source tree.
 */
-var f=__webpack_require__(3),p=__webpack_require__(4);__webpack_require__(2);var r=__webpack_require__(1);
+var f=__webpack_require__(4),p=__webpack_require__(5);__webpack_require__(2);var r=__webpack_require__(1);
 function t(a){for(var b=arguments.length-1,d="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,e=0;e<b;e++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[e+1]);b=Error(d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var u={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function v(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}v.prototype.isReactComponent={};v.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?t("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};v.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function w(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}function x(){}x.prototype=v.prototype;var y=w.prototype=new x;y.constructor=w;f(y,v.prototype);y.isPureReactComponent=!0;function z(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}var A=z.prototype=new x;A.constructor=z;f(A,v.prototype);A.unstable_isAsyncReactComponent=!0;A.render=function(){return this.props.children};
@@ -1029,9 +1029,9 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var objectAssign$1 = __webpack_require__(3);
-var require$$0 = __webpack_require__(5);
-var emptyObject = __webpack_require__(4);
+var objectAssign$1 = __webpack_require__(4);
+var require$$0 = __webpack_require__(6);
+var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(2);
 var emptyFunction = __webpack_require__(1);
 var checkPropTypes = __webpack_require__(7);
@@ -2775,7 +2775,7 @@ if (process.env.NODE_ENV === 'production') {
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(6);__webpack_require__(2);var l=__webpack_require__(9),n=__webpack_require__(3),ba=__webpack_require__(10),ca=__webpack_require__(1),da=__webpack_require__(4),ea=__webpack_require__(11),fa=__webpack_require__(12),ha=__webpack_require__(13),ia=__webpack_require__(14);
+var aa=__webpack_require__(3);__webpack_require__(2);var l=__webpack_require__(9),n=__webpack_require__(4),ba=__webpack_require__(10),ca=__webpack_require__(1),da=__webpack_require__(5),ea=__webpack_require__(11),fa=__webpack_require__(12),ha=__webpack_require__(13),ia=__webpack_require__(14);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -3100,18 +3100,18 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var react = __webpack_require__(6);
+var react = __webpack_require__(3);
 var invariant = __webpack_require__(2);
 var ExecutionEnvironment = __webpack_require__(9);
-var _assign = __webpack_require__(3);
+var _assign = __webpack_require__(4);
 var EventListener = __webpack_require__(10);
-var require$$0 = __webpack_require__(5);
+var require$$0 = __webpack_require__(6);
 var hyphenateStyleName = __webpack_require__(23);
 var emptyFunction = __webpack_require__(1);
 var camelizeStyleName = __webpack_require__(25);
 var performanceNow = __webpack_require__(27);
 var propTypes = __webpack_require__(29);
-var emptyObject = __webpack_require__(4);
+var emptyObject = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(7);
 var shallowEqual = __webpack_require__(11);
 var containsNode = __webpack_require__(12);
@@ -20578,8 +20578,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(5);
-var assign = __webpack_require__(3);
+var warning = __webpack_require__(6);
+var assign = __webpack_require__(4);
 
 var ReactPropTypesSecret = __webpack_require__(8);
 var checkPropTypes = __webpack_require__(7);
@@ -21190,13 +21190,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(6);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _PieChart = __webpack_require__(33);
 
 var _PieChart2 = _interopRequireDefault(_PieChart);
+
+var _Teachers = __webpack_require__(34);
+
+var _Teachers2 = _interopRequireDefault(_Teachers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21215,31 +21219,109 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      data: {}
+      data: {},
+      year: 'all',
+      selectedCourse: ''
     };
+
+    _this.isChecked = _this.isChecked.bind(_this);
+    _this.updateYear = _this.updateYear.bind(_this);
+    _this.selectOneCourse = _this.selectOneCourse.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.fetchCourses();
+    }
+  }, {
+    key: 'selectOneCourse',
+    value: function selectOneCourse(course) {
+      this.setState({ selectedCourse: course });
+    }
+  }, {
+    key: 'isChecked',
+    value: function isChecked(value) {
+      // console.log('value', value);
+      // console.log('this.state.year', this.state.year);
+      return value === this.state.year ? true : false;
+    }
+  }, {
+    key: 'fetchCourses',
+    value: function fetchCourses() {
       var _this2 = this;
 
-      fetch('http://localhost:3000/api/courses/all').then(function (r) {
+      fetch('http://localhost:3000/api/courses/' + this.state.year).then(function (r) {
         return r.json();
       }).then(function (data) {
         return _this2.setState({ data: data });
       });
     }
   }, {
+    key: 'updateYear',
+    value: function updateYear(value) {
+      this.setState({ year: value }, this.fetchCourses);
+    }
+  }, {
     key: 'render',
     value: function render() {
-      // debugger;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_PieChart2.default, { data: this.state.data })
+        { className: 'app' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Students by Courses ',
+          this.state.year
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          'Years:'
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement('input', { type: 'radio', value: 'all',
+            onChange: function onChange() {
+              return _this3.updateYear('all');
+            },
+            checked: this.isChecked('all') }),
+          'All'
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement('input', { type: 'radio', value: '2015',
+            onChange: function onChange() {
+              return _this3.updateYear('2015');
+            },
+            checked: this.isChecked('2015') }),
+          '2015'
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement('input', { type: 'radio', value: '2016',
+            onChange: function onChange() {
+              return _this3.updateYear('2016');
+            },
+            checked: this.isChecked('2016') }),
+          '2016'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'charts' },
+          _react2.default.createElement(_PieChart2.default, {
+            selectOneCourse: this.selectOneCourse,
+            data: this.state.data }),
+          _react2.default.createElement(_Teachers2.default, {
+            year: this.state.year,
+            course: this.state.selectedCourse })
+        )
       );
     }
   }]);
@@ -21262,7 +21344,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(6);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -21293,26 +21375,17 @@ var PieChart = function (_React$Component) {
     value: function componentDidMount() {
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(this.drawChart.bind(this));
-      // this.drawChart();
     }
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextprops) {
       this.setState({ data: nextprops.data });
       google.charts.setOnLoadCallback(this.drawChart.bind(this));
-      // this.drawChart();
     }
   }, {
     key: 'drawChart',
     value: function drawChart() {
       var _this2 = this;
-
-      // google.charts.load('current', {'packages':['corechart']});
-      // Create the data table.
-
-      debugger;
-
-      console.log('within Piechart draw', this.state.data);
 
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Topping');
@@ -21326,37 +21399,60 @@ var PieChart = function (_React$Component) {
       }
 
       // Set chart options
-      var options = { 'title': 'How Much Pizza I Ate Last Night',
-        'width': 1000,
+      var options = {
+        'width': 500,
         'height': 500,
-        'legend': { position: 'bottom' }
+        'legend': { position: 'none' },
+        'colors': ['#e0440e', '#e6693e', '#ec8f6e']
       };
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
-      function selectHandler() {
+      var selectHandler = function selectHandler() {
         var selectedItem = chart.getSelection()[0];
-        console.log(selectedItem);
         if (selectedItem) {
-          var topping = data.getValue(selectedItem.row, 0);
-          console.log('The user selected ' + topping);
+          var course = data.getValue(selectedItem.row, 0);
+          _this2.props.selectOneCourse(course);
         }
-      }
+      };
 
-      google.visualization.events.addListener(chart, 'select', selectHandler);
+      google.visualization.events.addListener(chart, 'select', selectHandler.bind(this));
       chart.draw(data, options);
     }
   }, {
     key: 'render',
     value: function render() {
-      // debugger;
+      var colors = ['#e0440e', '#e6693e', '#ec8f6e'];
 
-      return _react2.default.createElement(
-        'div',
-        { id: 'chart_div' },
-        'chart'
-      );
+      if (typeof this.state.data !== 'undefined') {
+
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('div', { id: 'chart_div' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'chart-legend' },
+            Object.keys(this.state.data).map(function (el, idx) {
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement('div', {
+                  key: el,
+                  style: { backgroundColor: colors[idx] } }),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  el
+                )
+              );
+            })
+          )
+        );
+      } else {
+        return _react2.default.createElement('div', null);
+      }
     }
   }]);
 
@@ -21364,6 +21460,169 @@ var PieChart = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PieChart;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Teachers = function (_React$Component) {
+  _inherits(Teachers, _React$Component);
+
+  function Teachers(props) {
+    _classCallCheck(this, Teachers);
+
+    var _this = _possibleConstructorReturn(this, (Teachers.__proto__ || Object.getPrototypeOf(Teachers)).call(this, props));
+
+    _this.state = {
+      course: _this.props.course,
+      year: _this.props.year,
+      data: {}
+    };
+
+    return _this;
+  }
+
+  _createClass(Teachers, [{
+    key: 'getCourseId',
+    value: function getCourseId(course) {
+      var coursesToIds = {
+        'English 1A: Freshman Composition': '1a',
+        'English 1B: Argument & Analysis': '1b',
+        'English 1C: Applied Composition': '1c'
+      };
+
+      return coursesToIds[course];
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextprops) {
+      var _this2 = this;
+
+      var courseId = this.getCourseId(nextprops.course);
+
+      fetch('http://localhost:3000/api/course/' + courseId + '/year/' + nextprops.year + '/').then(function (r) {
+        return r.json();
+      }).then(function (data) {
+        return _this2.setState({
+          data: data,
+          course: nextprops.course,
+          year: nextprops.year
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      var teachers = Object.keys(this.state.data).map(function (id) {
+        var teacher = {
+          'name': id,
+          'students': _this3.state.data[id]
+        };
+
+        return teacher;
+      });
+
+      if (this.state.course === '' || this.state.year === '') {
+        return _react2.default.createElement('div', null);
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: 'teachers-chart' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            this.state.course
+          ),
+          _react2.default.createElement(
+            'table',
+            null,
+            _react2.default.createElement(
+              'tbody',
+              null,
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Year'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Course'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Instructor'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Students'
+                )
+              ),
+              teachers.map(function (teacher) {
+                return _react2.default.createElement(
+                  'tr',
+                  { key: teacher.name, className: 'data-row' },
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _this3.state.year
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _this3.state.course
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    teacher.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    teacher.students
+                  )
+                );
+              })
+            )
+          )
+        );
+      }
+    }
+  }]);
+
+  return Teachers;
+}(_react2.default.Component);
+
+exports.default = Teachers;
 
 /***/ })
 /******/ ]);

@@ -12,22 +12,14 @@ class PieChart extends React.Component{
   componentDidMount(){
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(this.drawChart.bind(this));
-    // this.drawChart();
   }
 
   componentWillReceiveProps(nextprops){
     this.setState({data: nextprops.data});
     google.charts.setOnLoadCallback(this.drawChart.bind(this));
-    // this.drawChart();
   }
 
   drawChart(){
-    // google.charts.load('current', {'packages':['corechart']});
-    // Create the data table.
-
-    debugger;
-
-    console.log('within Piechart draw', this.state.data);
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Topping');
@@ -41,37 +33,59 @@ class PieChart extends React.Component{
     }
 
     // Set chart options
-    var options = {'title':'How Much Pizza I Ate Last Night',
-                   'width':1000,
-                   'height':500,
-                   'legend': {position: 'bottom'}
-                 };
+    var options = {
+      'width': 500,
+      'height':500,
+      'legend': {position: 'none'},
+      'colors': ['#e0440e', '#e6693e', '#ec8f6e']
+     };
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
-    function selectHandler() {
+    const selectHandler = () => {
       var selectedItem = chart.getSelection()[0];
-      console.log(selectedItem);
       if (selectedItem) {
-        var topping = data.getValue(selectedItem.row, 0);
-        console.log('The user selected ' + topping);
+        var course = data.getValue(selectedItem.row, 0);
+        this.props.selectOneCourse(course);
       }
     }
 
-    google.visualization.events.addListener(chart, 'select', selectHandler);
+    google.visualization.events.addListener(chart, 'select', selectHandler.bind(this));
     chart.draw(data, options);
   }
 
 
   render(){
-    // debugger;
+    let colors = ['#e0440e', '#e6693e', '#ec8f6e'];
 
-    return(
-      <div id='chart_div'>
-        chart
-      </div>
-    )
+    if(typeof this.state.data !== 'undefined'){
+
+      return(
+        <div>
+          <div id='chart_div'></div>
+
+          <div className='chart-legend'>
+          {Object.keys(this.state.data).map((el, idx) => {
+            return(
+              <span>
+                <div
+                  key={el}
+                  style={{backgroundColor: colors[idx]}}></div>
+                <span>{el}</span>
+              </span>
+            )
+          })}
+
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+        </div>
+      )
+    }
   }
 }
 

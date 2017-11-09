@@ -6,3 +6,56 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1 {
+  border-bottom: 1px solid black;
+}
+
+.app {
+
+}
+
+.charts {
+  display: flex;
+}
+
+.teachers-chart {
+  margin-top: 100px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 500px;
+}
+
+.chart-legend div {
+  display: inline-block;
+  height: 20px;
+  width: 30px;
+  background-color: red;
+  content: ' ';
+}
+
+table{
+  border-collapse:collapse;
+}
+
+th {
+  text-align: left;
+  margin: 3px;
+}
+
+.data-row {
+  border-top: 1px solid lightgrey;
+}
+
+.data-row td {
+  padding: 5px;
+  border-top: 1px solid grey;
+}
+
+.data-row:nth-child(2n) {
+  background-color: lightgrey;
+}
