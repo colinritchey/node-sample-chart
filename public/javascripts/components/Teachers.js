@@ -19,7 +19,7 @@ class Teachers extends React.Component{
       'English 1C: Applied Composition': '1c'
     }
 
-    return coursesToIds[course];
+    return coursesToIds[course] || '1a';
   }
 
   componentWillReceiveProps(nextprops){
@@ -51,6 +51,10 @@ class Teachers extends React.Component{
         <div></div>
       )
     } else {
+      let averageStudents = teachers.reduce((sum, el) => (
+        sum + el.students
+      ), 0)/teachers.length;
+
       return (
         <div className='teachers-chart'>
           <h3>{this.state.course}</h3>
@@ -69,7 +73,11 @@ class Teachers extends React.Component{
                     <td>{this.state.year}</td>
                     <td>{this.state.course}</td>
                     <td>{teacher.name}</td>
-                    <td>{teacher.students}</td>
+                    <td
+                      className={
+                        teacher.students < averageStudents ? 'bold' : ''
+                      }
+                      >{teacher.students}</td>
                   </tr>
                 )
               })}

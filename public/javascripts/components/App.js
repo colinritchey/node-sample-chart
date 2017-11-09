@@ -22,12 +22,10 @@ class App extends React.Component{
   }
 
   selectOneCourse(course){
-    this.setState({selectedCourse: course})
+    this.setState({ selectedCourse: course })
   }
 
   isChecked(value){
-    // console.log('value', value);
-    // console.log('this.state.year', this.state.year);
     return value === this.state.year ? true : false;
   }
 
@@ -48,30 +46,24 @@ class App extends React.Component{
         <h1>Students by Courses {this.state.year}</h1>
 
         <label>Years:</label>
-        <label>
-          <input type='radio' value='all'
-            onChange={() => this.updateYear('all')}
-            checked={this.isChecked('all')}/>All
-        </label>
-        <label>
-          <input type='radio' value='2015'
-            onChange={() => this.updateYear('2015')}
-            checked={this.isChecked('2015')}/>2015
-        </label>
-        <label>
-          <input type='radio' value='2016'
-            onChange={() => this.updateYear('2016')}
-            checked={this.isChecked('2016')}/>2016
-        </label>
+          {['all', '2015', '2016'].map((year) => {
+            return(
+              <label key={year}>
+                <input type='radio' value={year}
+                  onChange={() => this.updateYear(year)}
+                  checked={this.isChecked(year)}/>{year}
+              </label>
+            )
+          })}
 
         <div className='charts'>
           <PieChart
-          selectOneCourse={this.selectOneCourse}
-          data={this.state.data}/>
+            selectOneCourse={this.selectOneCourse}
+            data={this.state.data}/>
 
           <Teachers
-          year={this.state.year}
-          course={this.state.selectedCourse}/>
+            year={this.state.year}
+            course={this.state.selectedCourse}/>
         </div>
 
       </div>

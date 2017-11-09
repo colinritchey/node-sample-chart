@@ -21243,8 +21243,6 @@ var App = function (_React$Component) {
   }, {
     key: 'isChecked',
     value: function isChecked(value) {
-      // console.log('value', value);
-      // console.log('this.state.year', this.state.year);
       return value === this.state.year ? true : false;
     }
   }, {
@@ -21282,36 +21280,18 @@ var App = function (_React$Component) {
           null,
           'Years:'
         ),
-        _react2.default.createElement(
-          'label',
-          null,
-          _react2.default.createElement('input', { type: 'radio', value: 'all',
-            onChange: function onChange() {
-              return _this3.updateYear('all');
-            },
-            checked: this.isChecked('all') }),
-          'All'
-        ),
-        _react2.default.createElement(
-          'label',
-          null,
-          _react2.default.createElement('input', { type: 'radio', value: '2015',
-            onChange: function onChange() {
-              return _this3.updateYear('2015');
-            },
-            checked: this.isChecked('2015') }),
-          '2015'
-        ),
-        _react2.default.createElement(
-          'label',
-          null,
-          _react2.default.createElement('input', { type: 'radio', value: '2016',
-            onChange: function onChange() {
-              return _this3.updateYear('2016');
-            },
-            checked: this.isChecked('2016') }),
-          '2016'
-        ),
+        ['all', '2015', '2016'].map(function (year) {
+          return _react2.default.createElement(
+            'label',
+            { key: year },
+            _react2.default.createElement('input', { type: 'radio', value: year,
+              onChange: function onChange() {
+                return _this3.updateYear(year);
+              },
+              checked: _this3.isChecked(year) }),
+            year
+          );
+        }),
         _react2.default.createElement(
           'div',
           { className: 'charts' },
@@ -21348,6 +21328,10 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Legend = __webpack_require__(35);
+
+var _Legend2 = _interopRequireDefault(_Legend);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21365,8 +21349,10 @@ var PieChart = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (PieChart.__proto__ || Object.getPrototypeOf(PieChart)).call(this, props));
 
     _this.state = {
-      data: _this.props.data
+      data: _this.props.data,
+      displayLegend: false
     };
+
     return _this;
   }
 
@@ -21398,7 +21384,6 @@ var PieChart = function (_React$Component) {
         data.addRows(arrayOfData);
       }
 
-      // Set chart options
       var options = {
         'width': 500,
         'height': 500,
@@ -21406,7 +21391,6 @@ var PieChart = function (_React$Component) {
         'colors': ['#e0440e', '#e6693e', '#ec8f6e']
       };
 
-      // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
       var selectHandler = function selectHandler() {
@@ -21419,36 +21403,22 @@ var PieChart = function (_React$Component) {
 
       google.visualization.events.addListener(chart, 'select', selectHandler.bind(this));
       chart.draw(data, options);
+
+      this.setState({ displayLegend: true });
     }
   }, {
     key: 'render',
     value: function render() {
-      var colors = ['#e0440e', '#e6693e', '#ec8f6e'];
 
       if (typeof this.state.data !== 'undefined') {
-
         return _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement('div', { id: 'chart_div' }),
-          _react2.default.createElement(
-            'div',
-            { className: 'chart-legend' },
-            Object.keys(this.state.data).map(function (el, idx) {
-              return _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement('div', {
-                  key: el,
-                  style: { backgroundColor: colors[idx] } }),
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  el
-                )
-              );
-            })
-          )
+          _react2.default.createElement(_Legend2.default, {
+            data: this.state.data,
+            displayLegend: this.state.displayLegend
+          })
         );
       } else {
         return _react2.default.createElement('div', null);
@@ -21512,7 +21482,7 @@ var Teachers = function (_React$Component) {
         'English 1C: Applied Composition': '1c'
       };
 
-      return coursesToIds[course];
+      return coursesToIds[course] || '1a';
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -21548,6 +21518,10 @@ var Teachers = function (_React$Component) {
       if (this.state.course === '' || this.state.year === '') {
         return _react2.default.createElement('div', null);
       } else {
+        var averageStudents = teachers.reduce(function (sum, el) {
+          return sum + el.students;
+        }, 0) / teachers.length;
+
         return _react2.default.createElement(
           'div',
           { className: 'teachers-chart' },
@@ -21607,7 +21581,9 @@ var Teachers = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    {
+                      className: teacher.students < averageStudents ? 'bold' : ''
+                    },
                     teacher.students
                   )
                 );
@@ -21623,6 +21599,55 @@ var Teachers = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Teachers;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Legend = function Legend(_ref) {
+  var data = _ref.data,
+      displayLegend = _ref.displayLegend;
+
+  if (displayLegend) {
+    var colors = ['#e0440e', '#e6693e', '#ec8f6e'];
+
+    return _react2.default.createElement(
+      'div',
+      { className: 'chart-legend' },
+      Object.keys(data).map(function (el, idx) {
+        return _react2.default.createElement(
+          'span',
+          { key: el, className: 'legend-item' },
+          _react2.default.createElement('div', { className: 'block-item',
+            style: { backgroundColor: colors[idx] } }),
+          _react2.default.createElement(
+            'span',
+            null,
+            ' ',
+            el
+          )
+        );
+      })
+    );
+  } else {
+    return '';
+  }
+};
+
+exports.default = Legend;
 
 /***/ })
 /******/ ]);

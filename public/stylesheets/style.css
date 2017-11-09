@@ -9,6 +9,7 @@ a {
 
 h1 {
   border-bottom: 1px solid black;
+  text-transform: capitalize;
 }
 
 .app {
@@ -27,14 +28,20 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 500px;
+  width: 600px;
 }
 
-.chart-legend div {
+.legend-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.block-item {
+  margin-right: 10px;
   display: inline-block;
   height: 20px;
   width: 30px;
-  background-color: red;
   content: ' ';
 }
 
@@ -44,7 +51,8 @@ table{
 
 th {
   text-align: left;
-  margin: 3px;
+  padding: 3px;
+  padding-right: 15px;
 }
 
 .data-row {
@@ -53,9 +61,22 @@ th {
 
 .data-row td {
   padding: 5px;
+  padding-right: 15px;
   border-top: 1px solid grey;
 }
 
 .data-row:nth-child(2n) {
-  background-color: lightgrey;
+  background-color: #f1f1f1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .charts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
