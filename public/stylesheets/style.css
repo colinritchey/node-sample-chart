@@ -12,8 +12,8 @@ h1 {
   text-transform: capitalize;
 }
 
-.app {
-
+label {
+  text-transform: capitalize;
 }
 
 .charts {
@@ -31,7 +31,7 @@ h1 {
   width: 600px;
 }
 
-.legend-item{
+.legend-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
